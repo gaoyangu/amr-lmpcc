@@ -33,7 +33,7 @@ subscribe:
 
 # Coordinate frame definitions
 frames:
-    robot_base_link:  base_link
+    robot_base_link:  base_footprint # base_link
     planning_frame:   map
 
 # Collision avoidance parameters

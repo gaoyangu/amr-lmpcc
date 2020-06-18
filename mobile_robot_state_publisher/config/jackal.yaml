@@ -3,7 +3,7 @@
 #publisher rate
 rate: 40
 #robot base frame
-base_frame: base_link
+base_frame: base_footprint # base_link
 #map frame
 root_frame: map
 robot_state_topic: /robot_state
