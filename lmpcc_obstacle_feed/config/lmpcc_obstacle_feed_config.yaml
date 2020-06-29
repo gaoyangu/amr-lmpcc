@@ -1,6 +1,6 @@
 # Obstacle feed mode (0 = sensor mode, 1 = OptiTrack mode, 2 = predefined obstacles, 4 = Pedsim)
 # need to recompile after changing!
-obstacle_feed_mode: 4
+obstacle_feed_mode: 2
 
 # Debugging info
 activate_debug_output: false
@@ -37,11 +37,11 @@ detected_obstacles:
 
 # Create predefined obstacles
 predefined_obstacles:
-    pose_x: [85, 55, 10]
-    pose_y: [0, -1, -2]
-    heading: [0, 0, 0]
-    v_x: [-0.5, 0.15, 0.3]
-    v_y: [0.0, 0.0, 0.0]
+    pose_x: [85, 55, 10, 5]
+    pose_y: [0, -1, -2, 3]
+    heading: [0, 0, 0, 0]
+    v_x: [-0.5, 0.15, 0.3, 0.2]
+    v_y: [0.0, 0.0, 0.0, 0.0]
     dimensions:
-        minor_semiaxis: [0.3, 0.3, 0.3]
-        major_semiaxis: [0.3, 0.3, 0.3]
+        minor_semiaxis: [0.3, 0.3, 0.3, 0.3]
+        major_semiaxis: [0.3, 0.3, 0.3, 0.3]
