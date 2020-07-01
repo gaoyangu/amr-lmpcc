@@ -29,9 +29,6 @@
     <param name="collision_avoidance/local_map" value="true" type="bool" />
     <param name="simulation_mode" value="false" type="bool" />
 
-    <!-- configured rviz -->
-    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find lmpcc)/rviz_config/rviz_config.rviz" />
-
 </launch>  
 
 

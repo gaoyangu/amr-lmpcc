@@ -1,0 +1,4 @@
+<launch>
+     <!-- configured rviz -->
+     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find lmpcc)/rviz_config/rviz_config.rviz" />
+</launch>
