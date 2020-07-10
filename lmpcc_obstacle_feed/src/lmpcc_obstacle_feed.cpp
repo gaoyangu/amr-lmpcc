@@ -171,24 +171,22 @@ bool ObstacleFeed::initialize()
 
                 return false;
             }
-            else
-            {
-                for (int obst_it = 0; obst_it < obstacles_.lmpcc_obstacles.size(); obst_it++)
-                {
-                
-                    obstacles_.lmpcc_obstacles[obst_it].pose.position.x = lmpcc_obstacle_feed_config_->obst_pose_x_[obst_it];
-                    obstacles_.lmpcc_obstacles[obst_it].pose.position.y = lmpcc_obstacle_feed_config_->obst_pose_y_[obst_it];
+
+            // add Predefined obstacle to obstacle_
+            for (int obst_it = 0; obst_it < obstacles_.lmpcc_obstacles.size(); obst_it++)
+            {  
+                obstacles_.lmpcc_obstacles[obst_it].pose.position.x = lmpcc_obstacle_feed_config_->obst_pose_x_[obst_it];
+                obstacles_.lmpcc_obstacles[obst_it].pose.position.y = lmpcc_obstacle_feed_config_->obst_pose_y_[obst_it];
     
-                    obstacles_.lmpcc_obstacles[obst_it].minor_semiaxis[0] = lmpcc_obstacle_feed_config_->obst_dim_minor_[0];
-                    obstacles_.lmpcc_obstacles[obst_it].major_semiaxis[0] = lmpcc_obstacle_feed_config_->obst_dim_major_[0];
+                obstacles_.lmpcc_obstacles[obst_it].minor_semiaxis[0] = lmpcc_obstacle_feed_config_->obst_dim_minor_[0];
+                obstacles_.lmpcc_obstacles[obst_it].major_semiaxis[0] = lmpcc_obstacle_feed_config_->obst_dim_major_[0];
 
-
-                    for (int traj_it = 0; traj_it < lmpcc_obstacle_feed_config_->discretization_steps_; traj_it++)
-                    {
-                        obstacles_.lmpcc_obstacles[obst_it].trajectory.poses[traj_it].pose.position.x = lmpcc_obstacle_feed_config_->obst_pose_x_[obst_it];
-                        obstacles_.lmpcc_obstacles[obst_it].trajectory.poses[traj_it].pose.position.y = lmpcc_obstacle_feed_config_->obst_pose_y_[obst_it];
-                    }
-                }                
+                for (int traj_it = 0; traj_it < lmpcc_obstacle_feed_config_->discretization_steps_; traj_it++)
+                {
+                    obstacles_.lmpcc_obstacles[obst_it].trajectory.poses[traj_it].pose.position.x = lmpcc_obstacle_feed_config_->obst_pose_x_[obst_it];
+                    obstacles_.lmpcc_obstacles[obst_it].trajectory.poses[traj_it].pose.position.y = lmpcc_obstacle_feed_config_->obst_pose_y_[obst_it];
+                }
+                       
             }
             
 
