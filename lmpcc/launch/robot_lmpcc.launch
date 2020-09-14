@@ -9,7 +9,7 @@
     <arg name="debug_kinematic_cal" default="false"/>
     <arg name="debug_collision_detection" default="false"/>
     <arg name="config" default="$(find mobile_robot_state_publisher)"/>
-    <arg name="scan_topic" value="scan" />
+    <!-- arg name="scan_topic" value="scan" / -->
 
     <!--Launch localization node-->
     <!--    <arg name="map_file" default="$(find jackal_navigation)/maps/cyberzoo.yaml"/>
