@@ -26,6 +26,7 @@ find_package(catkin REQUIRED COMPONENTS
   vision_msgs
   lmpcc_msgs
   spencer_tracking_msgs
+  obstacle_detector
   pedsim_msgs
 )
 
