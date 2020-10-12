@@ -23,7 +23,8 @@ publish:
 subscribe:
     detections: none #detection_3d
     optitrack: none #future_obj_track
-    pedestrians: /spencer/perception/tracked_persons #/spencer/perception/tracked_persons_confirmed_by_yolo
+    # pedestrians: /spencer/perception/tracked_persons #/spencer/perception/tracked_persons_confirmed_by_yolo
+    pedestrians: /obstacles
     prius: none #/future_obj_track
     pedsim: /pedsim_visualizer/tracked_persons
 

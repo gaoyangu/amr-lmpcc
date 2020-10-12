@@ -204,7 +204,8 @@ bool ObstacleFeed::initialize()
         {
             ROS_WARN("In this mode, clustered pointcloud obstacles are forwarded");
 
-            obstacles_sub = nh_.subscribe(lmpcc_obstacle_feed_config_->sub_pedestrians_, 1, &ObstacleFeed::pedestriansCallback, this);
+            //obstacles_sub = nh_.subscribe(lmpcc_obstacle_feed_config_->sub_pedestrians_, 1, &ObstacleFeed::pedestriansCallback, this);
+            obstacles_sub = nh_.subscribe(lmpcc_obstacle_feed_config_->sub_pedestrians_, 1, &ObstacleFeed::trackedObstaclesCallback, this);
         }
         else if(lmpcc_obstacle_feed_config_->obstacle_feed_mode_ == 4)
         {
