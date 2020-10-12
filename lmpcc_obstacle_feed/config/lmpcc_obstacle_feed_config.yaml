@@ -1,6 +1,6 @@
 # Obstacle feed mode (0 = sensor mode, 1 = OptiTrack mode, 2 = predefined obstacles, 4 = Pedsim)
 # need to recompile after changing!
-obstacle_feed_mode: 2
+obstacle_feed_mode: 0
 
 # Debugging info
 activate_debug_output: false
@@ -9,7 +9,7 @@ activate_visualization: true
 # Rate at which ellipse obstacles should be send out
 update_rate: 20
 discretization_steps: 15
-prediction_horizon: 3
+prediction_horizon: 2 # before 3
 
 # Define the coordinate frames
 frames:
@@ -23,7 +23,7 @@ publish:
 subscribe:
     detections: none #detection_3d
     optitrack: none #future_obj_track
-    pedestrians: none #/spencer/perception/tracked_persons_confirmed_by_yolo
+    pedestrians: /spencer/perception/tracked_persons #/spencer/perception/tracked_persons_confirmed_by_yolo
     prius: none #/future_obj_track
     pedsim: /pedsim_visualizer/tracked_persons
 
@@ -37,10 +37,11 @@ detected_obstacles:
 
 # Create predefined obstacles
 predefined_obstacles:
-    pose_x: [85, 55, 10, 5]
-    pose_y: [0, -1, -2, 3]
+    pose_x: [5, 5, 1, 1]
+    pose_y: [0, -1, -2, 0]
     heading: [0, 0, 0, 0]
-    v_x: [-0.5, 0.15, 0.3, 0.2]
+#   v_x: [-0.05, 0.015, 0.03, 0.02]
+    v_x: [0.05, 0.0, 0.0, 0.01]
     v_y: [0.0, 0.0, 0.0, 0.0]
     dimensions:
         minor_semiaxis: [0.3, 0.3, 0.3, 0.3]
