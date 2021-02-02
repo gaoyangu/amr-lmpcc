@@ -591,8 +591,8 @@ void ObstacleFeed::PedsimCallback(const spencer_tracking_msgs::TrackedPersons& p
     //if the number of detected obstacle is less than the default number, randomly initialize the remaining number of required obstacles
     for (int ellipses_it = n; ellipses_it < N_obstacles_ ; ellipses_it++)
     {
-        ellipse.pose.position.x = DEFAULT_OBSTACLE_SIZE;
-        ellipse.pose.position.y = DEFAULT_OBSTACLE_SIZE;
+        ellipse.pose.position.x = DEFAULT_OBSTACLE_DISTANCE;
+        ellipse.pose.position.y = DEFAULT_OBSTACLE_DISTANCE;
         ellipse.id=0;
         ellipse.minor_semiaxis.resize(lmpcc_obstacle_feed_config_->discretization_steps_);
         ellipse.major_semiaxis.resize(lmpcc_obstacle_feed_config_->discretization_steps_);
@@ -601,8 +601,8 @@ void ObstacleFeed::PedsimCallback(const spencer_tracking_msgs::TrackedPersons& p
             ellipse.trajectory.poses[traj_it].header.stamp = ros::Time::now();
             ellipse.trajectory.poses[traj_it].header.frame_id = lmpcc_obstacle_feed_config_->planning_frame_;
             ellipse.trajectory.header.frame_id = lmpcc_obstacle_feed_config_->planning_frame_;
-            ellipse.trajectory.poses[traj_it].pose.position.x = DEFAULT_OBSTACLE_SIZE;
-            ellipse.trajectory.poses[traj_it].pose.position.y = DEFAULT_OBSTACLE_SIZE;
+            ellipse.trajectory.poses[traj_it].pose.position.x = DEFAULT_OBSTACLE_DISTANCE;
+            ellipse.trajectory.poses[traj_it].pose.position.y = DEFAULT_OBSTACLE_DISTANCE;
         }
 
         local_ellipses.lmpcc_obstacles.push_back(ellipse);
