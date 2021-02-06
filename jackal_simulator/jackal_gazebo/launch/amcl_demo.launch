@@ -1,0 +1,19 @@
+<launch>
+
+  <arg name="use_map_topic" default="true"/>
+  <arg name="scan_topic" default="front/scan" />
+
+  <!-- Run the map server -->
+ <arg name="map_file" default="$(find lmpcc_obstacle_feed)/maps/work_layout_v2.yaml"/>
+ <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+
+  <!--- Run AMCL -->
+  <include file="$(find jackal_gazebo)/launch/amcl.launch">
+    <arg name="use_map_topic" value="$(arg use_map_topic)" />
+    <arg name="scan_topic"    value="$(arg scan_topic)" />
+  </include>
+
+   <!-- 运行rviz -->
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find lmpcc)/rviz_config/rviz_config.rviz"/>
+
+</launch>

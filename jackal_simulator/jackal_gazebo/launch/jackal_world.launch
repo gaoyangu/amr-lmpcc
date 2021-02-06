@@ -2,7 +2,7 @@
   <arg name="use_sim_time" default="true" />
   <arg name="gui" default="true" />
   <arg name="headless" default="false" />
-  <arg name="world_name" default="$(find jackal_gazebo)/worlds/jackal_race.world" />
+  <arg name="world_name" default="$(find jackal_gazebo)/worlds/work_layout_v2.world" />
 
   <!-- Short-term hack to support the original front_laser:=true argument for spawning
        the simulator. This will be removed in favour of using the config:=x arg instead. -->
@@ -35,9 +35,9 @@
 
   <!-- Spawn Jackal -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
-	      args="-urdf -model jackal -param robot_description -x 0 -y 0 -z 1.0" />
+	      args="-urdf -model jackal -param robot_description -x -5.5 -y -3.5 -z 1.0 -Y 1.57" />
 
 <!-- Static transform between odom and map frame to allow for planning in the map frame similar to the real robot -->
-<node pkg="tf" type="static_transform_publisher" name="map_odom_broadcaster" args="0 0 0 0 0 0 map odom 100" />
+<!-- node pkg="tf" type="static_transform_publisher" name="map_odom_broadcaster" args="0 0 0 0 0 0 map odom 100" /-->
 
 </launch>
