@@ -2,6 +2,7 @@
 
   <arg name="use_map_topic" default="true"/>
   <arg name="scan_topic" default="front/scan" />
+  <arg name="initial_pose_a" default="1.57" />
 
   <!-- Run the map server -->
  <arg name="map_file" default="$(find lmpcc_obstacle_feed)/maps/work_layout_v2.yaml"/>
@@ -11,6 +12,7 @@
   <include file="$(find jackal_gazebo)/launch/amcl.launch">
     <arg name="use_map_topic" value="$(arg use_map_topic)" />
     <arg name="scan_topic"    value="$(arg scan_topic)" />
+    <arg name="initial_pose_a"    value="$(arg initial_pose_a)" />
   </include>
 
    <!-- 运行rviz -->
