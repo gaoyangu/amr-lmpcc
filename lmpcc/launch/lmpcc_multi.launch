@@ -26,4 +26,32 @@
     </node>
 </group>
 
+<group ns="jackal1">
+    <!-- Debug Info -->
+    <arg name="debug" default="false" />
+    <arg unless="$(arg debug)" name="launch_prefix" value="" />
+    <arg     if="$(arg debug)" name="launch_prefix" value="gdb --ex run --args" />
+    <arg name="debug_config_parameter" default="false"/>
+    <arg name="debug_kinematic_cal" default="false"/>
+    <arg name="debug_collision_detection" default="false"/>
+    <arg name="config" default="$(find mobile_robot_state_publisher)"/>
+
+    <!--Publish the mobile robot pose -->
+    <node name="mobile_robot_state_publisher" pkg="mobile_robot_state_publisher" type="mobile_robot_state_publisher_node" respawn="false" output="screen">
+            <rosparam command="load" file="$(arg config)/config/jackal.yaml" />
+            <param name="base_frame" value="jackal1/base_link"/>
+            <remap from="odometry/filtered" to="/jackal1/odometry/local_filtered"/>
+            <remap from="robot_state" to="/jackal1/robot_state"/>
+    </node>
+    
+    <rosparam command="load" file="$(find lmpcc)/config/lmpcc_config_parameter.yaml"/>
+
+    <rosparam param="global_path/x">[3, 3, 3, 15, 20, 25]</rosparam>
+    <rosparam param="global_path/y">[0, 4, 6, 0, 0, 0]</rosparam>
+    <rosparam param="global_path/theta">[1.57, 1.57, 1.57, 0, 0, 0]</rosparam>
+    
+    <node pkg="lmpcc" type="lmpcc_node" name="lmpcc_node" cwd="node" respawn="false" output="screen">
+        <remap from="/robot_collision_space" to="/jackal1/robot_collision_space"/>
+    </node>
+</group>
 </launch> 
