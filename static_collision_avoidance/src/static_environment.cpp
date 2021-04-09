@@ -53,11 +53,11 @@ bool StaticEnvironment::initialize(){
     }
 
     // Maxium search distance of area free of static obstacles
-    if (!nh_.getParam ("collision_avoidance/delta_max", delta_max_) )
-    {
-        ROS_WARN(" Parameter '/collision_avoidance/delta_max not set on %s node" , ros::this_node::getName().c_str());
-        return false;
-    }
+    // if (!nh_.getParam ("collision_avoidance/delta_max", delta_max_) )
+    // {
+    //     ROS_WARN(" Parameter '/collision_avoidance/delta_max not set on %s node" , ros::this_node::getName().c_str());
+    //     return false;
+    // }
 
     // Occupation threshold of searched occupancy grid
     if (!nh_.getParam ("collision_avoidance/free_space_assumption", free_space_assumption_) )
@@ -87,8 +87,8 @@ bool StaticEnvironment::initialize(){
         return false;
     }
 
-    // Occupation threshold of searched occupancy grid
-    if (!nh_.getParam ("/collision_avoidance/delta_max", collision_free_delta_max_) )
+    // Maxium search distance of area free of static obstacles
+    if (!nh_.getParam ("collision_avoidance/delta_max", collision_free_delta_max_) )
     {
         ROS_WARN(" Parameter '/collision_avoidance/delta_max not set on %s node" , ros::this_node::getName().c_str());
         return false;

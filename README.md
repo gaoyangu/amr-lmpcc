@@ -85,6 +85,16 @@ source devel/setup.bash
         2. Click on the lmpcc parameters to start the robot motion by press the enable_output button
         3. Click on the lmpcc parameters to start planning by pressing the plan button
 
+## Running LMPCC with static_collision_avoidance
+```bash
+roslaunch jackal_gazebo jackal_world.launch
+roslaunch jackal_gazebo amcl_demo.launch
+roslaunch static_collision_avoidance static_collision_avoidance.launch
+roslaunch lmpcc_obstacle_feed lmpcc_obstacle_feed.launch
+roslaunch lmpcc lmpcc.launch
+rosrun rqt_reconfigure rqt_reconfigure
+```
+
 ## Troubleshooting
 * If you get the following error:
 ```

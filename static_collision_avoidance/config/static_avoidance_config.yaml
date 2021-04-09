@@ -19,7 +19,7 @@ robot_dimensions:
     ego_w: 0.4
 
 # Optimal Control Problem dimensions
-prediction_steps: 25
+prediction_steps: 15 #25
 state_dimension: 5
 
 # Input and output topics
