@@ -23,7 +23,7 @@ bool StaticEnvironment::initialize(){
     local_map_pub_ = nh_.advertise<nav_msgs::OccupancyGrid>("my_map",1);
 
     /** Services **/
-    map_service_ = nh_.serviceClient<nav_msgs::GetMap>("static_map");
+    map_service_ = nh_.serviceClient<nav_msgs::GetMap>("/static_map");
 
     if (!nh_.getParam ("collision_avoidance/map_resolution", map_resolution_) )
     {
