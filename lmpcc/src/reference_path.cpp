@@ -153,6 +153,7 @@ void ReferencePath::InitLocalRefPath(int N_local, int N_seg_per_cloth, std::vect
     // Set first entries of the local reference path
     s_local[0] = 0;
     x_local[0] = X_temp[0] - s0;
+    //x_local[0] = X_temp[0] + s0;
     y_local[0] = Y_temp[0];
 
     // Set local reference path values
@@ -160,6 +161,7 @@ void ReferencePath::InitLocalRefPath(int N_local, int N_seg_per_cloth, std::vect
         x_local[local_points_it] = X_temp[local_points_it - 1];
         y_local[local_points_it] = Y_temp[local_points_it - 1];
         s_local[local_points_it] = S_temp[local_points_it - 1] + s0;
+        //s_local[local_points_it] = S_temp[local_points_it - 1] - s0;
     }
 
     total_length = s_local[N_pts_spline - 1];
