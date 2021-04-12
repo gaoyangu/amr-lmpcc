@@ -18,9 +18,11 @@
     # load Cartesian controller config
     <rosparam command="load" file="$(find lmpcc)/config/lmpcc_config_parameter.yaml"/>
 
-    <rosparam param="global_path/x">[1, 5, 10, 15, 20, 25]</rosparam>
+    <!-- rosparam param="global_path/x">[1, 5, 10, 15, 20, 25]</rosparam -->
+    <rosparam param="global_path/x">[9, 5, 0, -5, -10, -15]</rosparam>
     <rosparam param="global_path/y">[2, 2, 2, 2, 2, 2]</rosparam>
-    <rosparam param="global_path/theta">[0.0, 0.0, 0.0, 0.0, 0.0, 0.0]</rosparam>
+    <rosparam param="global_path/theta">[3.14, 3.14, 3.14, 3.14, 3.14, 3.14]</rosparam>
+    <!-- rosparam param="global_path/theta">[0.0, 0.0, 0.0, 0.0, 0.0, 0.0]</rosparam -->
 
     <node pkg="lmpcc" type="lmpcc_node" name="lmpcc_node" cwd="node" respawn="false" output="screen"/>
 

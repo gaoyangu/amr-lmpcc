@@ -10,9 +10,9 @@
   <!--- Run AMCL -->
   <include file="$(find jackal_gazebo)/launch/include/amcl.launch">
     <arg name="use_map_topic" value="$(arg use_map_topic)" />
-    <arg name="initial_pose_x"    value="1.0" />
+    <arg name="initial_pose_x"    value="13.0" />
     <arg name="initial_pose_y"    value="2.0" />
-    <arg name="initial_pose_a"    value="0.0" />
+    <arg name="initial_pose_a"    value="3.14" />
   </include>
 
   <!--- Run Rviz -->
