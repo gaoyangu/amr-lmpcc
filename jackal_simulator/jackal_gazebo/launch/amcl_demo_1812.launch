@@ -1,0 +1,21 @@
+<launch>
+
+  <arg name="use_map_topic" default="false"/>
+  <arg name="scan_topic" default="front/scan" />
+
+  <!-- Run the map server -->
+ <arg name="map_file" default="$(find jackal_gazebo)/maps/playground_18_12.yaml"/>
+ <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+
+  <!--- Run AMCL -->
+  <include file="$(find jackal_gazebo)/launch/include/amcl.launch">
+    <arg name="use_map_topic" value="$(arg use_map_topic)" />
+    <arg name="initial_pose_x"    value="0.0" />
+    <arg name="initial_pose_y"    value="0.0" />
+    <arg name="initial_pose_a"    value="1.57" />
+  </include>
+
+  <!--- Run Rviz -->
+  <node type="rviz" name="rviz" pkg="rviz" args="-d $(find lmpcc)/rviz_config/rviz_config.rviz" />
+
+</launch>
