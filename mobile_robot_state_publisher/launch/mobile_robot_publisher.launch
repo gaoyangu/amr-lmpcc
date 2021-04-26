@@ -2,6 +2,9 @@
     <arg name="ns0" value="jackal0"/>
     <arg name="ns1" value="jackal1"/>
     <arg name="ns2" value="jackal2"/>
+    <arg name="ns3" value="jackal3"/>
+    <arg name="ns4" value="jackal4"/>
+    <arg name="ns5" value="jackal5"/>
 
     <arg name="config" default="$(find mobile_robot_state_publisher)"/>
 
@@ -21,6 +24,25 @@
     <node name="mobile_robot_state_publisher" pkg="mobile_robot_state_publisher" type="mobile_robot_state_publisher_node" respawn="false" output="screen" ns="$(arg ns2)">
             <rosparam command="load" file="$(arg config)/config/jackal.yaml" />
             <param name="base_frame" value="$(arg ns2)/base_link"/>
+            <remap from="odometry/filtered" to="odometry/local_filtered"/>
+    </node>
+
+    <!--Publish the mobile robot pose -->
+    <node name="mobile_robot_state_publisher" pkg="mobile_robot_state_publisher" type="mobile_robot_state_publisher_node" respawn="false" output="screen" ns="$(arg ns3)">
+            <rosparam command="load" file="$(arg config)/config/jackal.yaml" />
+            <param name="base_frame" value="$(arg ns3)/base_link"/>
+            <remap from="odometry/filtered" to="odometry/local_filtered"/>
+    </node>
+
+    <node name="mobile_robot_state_publisher" pkg="mobile_robot_state_publisher" type="mobile_robot_state_publisher_node" respawn="false" output="screen" ns="$(arg ns4)">
+            <rosparam command="load" file="$(arg config)/config/jackal.yaml" />
+            <param name="base_frame" value="$(arg ns4)/base_link"/>
+            <remap from="odometry/filtered" to="odometry/local_filtered"/>
+    </node>
+
+    <node name="mobile_robot_state_publisher" pkg="mobile_robot_state_publisher" type="mobile_robot_state_publisher_node" respawn="false" output="screen" ns="$(arg ns5)">
+            <rosparam command="load" file="$(arg config)/config/jackal.yaml" />
+            <param name="base_frame" value="$(arg ns5)/base_link"/>
             <remap from="odometry/filtered" to="odometry/local_filtered"/>
     </node>
 
