@@ -669,7 +669,7 @@ void LMPCC::controlLoop(const ros::TimerEvent &event)
         }
 	}
 
-    if(!enable_output_ || acado_getKKT() > lmpcc_config_->kkt_tolerance_) {
+    if(!enable_output_ || acado_getKKT() > lmpcc_config_->kkt_tolerance_ || goal_reached_) {
 		publishZeroJointVelocity();
 	}
 	else {
